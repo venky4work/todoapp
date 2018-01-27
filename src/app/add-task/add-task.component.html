@@ -1,0 +1,15 @@
+<mat-card>
+  Task Details
+</mat-card>
+<mat-card>
+ <div class="example-container" [formGroup]="taskGroup">
+    <mat-form-field>
+      <input matInput placeholder="Task Name" formControlName="tname" required>
+     </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Task Description" formControlName="tdesc" required></textarea>
+      </mat-form-field>
+</div>
+<button mat-button (click)="addTask()">Add Task</button>
+<button mat-button (click)="goBack()">Cancel</button>
+</mat-card>

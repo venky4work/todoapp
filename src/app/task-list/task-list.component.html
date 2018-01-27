@@ -1,0 +1,37 @@
+<mat-card><button mat-button (click)="addTask()">Add Task</button></mat-card>
+    <div class="mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSource">
+      
+         
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+          </ng-container>
+      
+          
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.taskName}} </mat-cell>
+          </ng-container>
+      
+         
+          <ng-container matColumnDef="desc">
+            <mat-header-cell *matHeaderCellDef> Desc </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.taskDesc}} </mat-cell>
+          </ng-container>
+      
+         
+          <ng-container matColumnDef="status">
+            <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.taskStatus}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+              <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+              <mat-cell *matCellDef="let element"> <button mat-button (click)="deleteTask(element.id,$event)">Delete</button> <button mat-button (click)="completeTask(element.id,$event)">Complete</button> </mat-cell>
+            </ng-container>
+      
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
